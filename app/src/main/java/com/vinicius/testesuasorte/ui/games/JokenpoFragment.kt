@@ -1,4 +1,4 @@
-package com.vinicius.testesuasorte.ui
+package com.vinicius.testesuasorte.ui.games
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,6 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat.getDrawable
 import androidx.fragment.app.Fragment
 import com.vinicius.testesuasorte.R
-import com.vinicius.testesuasorte.databinding.FragmentEvenOrOddsBinding
 import com.vinicius.testesuasorte.databinding.FragmentJokenpoBinding
 
 class JokenpoFragment : Fragment(R.layout.fragment_jokenpo) {

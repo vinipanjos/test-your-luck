@@ -5,81 +5,98 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.MainActivity">
+    tools:context=".ui.welcome.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="horizontal"
-        android:weightSum="3"
+        android:weightSum="4"
         android:background="@color/secondary_200"
         android:nestedScrollingEnabled="true">
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+<!--        <HorizontalScrollView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent">-->
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/_fragments_rv"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:listitem="@layout/fragment_item"
-            tools:itemCount="7"
-            android:orientation="horizontal"/>
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/_fragments_rv"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            tools:listitem="@layout/fragment_item"-->
+<!--            tools:itemCount="7"-->
+<!--            android:orientation="horizontal"/>-->
 
-<!--        <com.google.android.material.button.MaterialButton-->
-<!--            android:id="@+id/evenorodds_btn"-->
-<!--            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_weight="1"-->
-<!--            android:layout_margin="4dp"-->
-<!--            app:iconTint="@color/primary_200"-->
-<!--            android:backgroundTint="@color/primary_700"-->
-<!--            android:text="Par ou Impar"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:textSize="10sp"-->
-<!--            android:textStyle="bold"-->
-<!--            app:cornerRadius="12dp"-->
-<!--            app:icon="@drawable/ic_evenorodds"-->
-<!--            app:layout_constraintStart_toEndOf="@+id/slotmachine_btn"-->
-<!--            app:layout_constraintTop_toTopOf="parent" />-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/evenorodds_btn"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="4dp"
+            app:iconTint="@color/primary_200"
+            android:backgroundTint="@color/primary_700"
+            android:text="Par ou Impar"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:cornerRadius="12dp"
+            app:icon="@drawable/ic_evenorodds"
+            app:layout_constraintStart_toEndOf="@+id/slotmachine_btn"
+            app:layout_constraintTop_toTopOf="parent" />
 
-<!--        <com.google.android.material.button.MaterialButton-->
-<!--            android:id="@+id/slotmachine_btn"-->
-<!--            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_weight="1"-->
-<!--            android:layout_margin="4dp"-->
-<!--            app:iconTint="@color/primary_200"-->
-<!--            android:backgroundTint="@color/primary_700"-->
-<!--            android:text="Caça-niquel"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:textSize="10sp"-->
-<!--            android:textStyle="bold"-->
-<!--            app:cornerRadius="12dp"-->
-<!--            app:icon="@drawable/ic_slotmachine"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent" />-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/slotmachine_btn"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="4dp"
+            app:iconTint="@color/primary_200"
+            android:backgroundTint="@color/primary_700"
+            android:text="Caça-niquel"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:cornerRadius="12dp"
+            app:icon="@drawable/ic_slotmachine"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-<!--        <com.google.android.material.button.MaterialButton-->
-<!--            android:id="@+id/jokenpo_btn"-->
-<!--            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_weight="1"-->
-<!--            android:layout_margin="4dp"-->
-<!--            app:iconTint="@color/primary_200"-->
-<!--            android:backgroundTint="@color/primary_700"-->
-<!--            android:text="Jokenpô"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:textSize="10sp"-->
-<!--            android:textStyle="bold"-->
-<!--            app:cornerRadius="12dp"-->
-<!--            app:icon="@drawable/ic_cut_24"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent" />-->
-        </HorizontalScrollView>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/jokenpo_btn"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="4dp"
+            app:iconTint="@color/primary_200"
+            android:backgroundTint="@color/primary_700"
+            android:text="Jokenpô"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:cornerRadius="12dp"
+            app:icon="@drawable/ic_cut_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/dice_btn"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="4dp"
+            app:iconTint="@color/primary_200"
+            android:backgroundTint="@color/primary_700"
+            android:text="Dados"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:cornerRadius="12dp"
+            app:icon="@drawable/ic_dice"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+<!--        </HorizontalScrollView>-->
     </LinearLayout>
 
     <androidx.fragment.app.FragmentContainerView

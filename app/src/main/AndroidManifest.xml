@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.vinicius.testesuasorte">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
         android:allowBackup="true"
@@ -10,19 +9,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TesteSuaSorte">
         <activity
-            android:name=".ui.JokenpoFragment"
+            android:name=".ui.games.JokenpoFragment"
             android:exported="false"
-            android:parentActivityName=".ui.MainActivity"/>
+            android:parentActivityName=".ui.welcome.MainActivity"/>
         <activity
-            android:name=".ui.EvenOrOddsFragment"
+            android:name=".ui.games.EvenOrOddsFragment"
             android:exported="false"
-            android:parentActivityName=".ui.MainActivity" />
+            android:parentActivityName=".ui.welcome.MainActivity" />
         <activity
             android:name=".ui.SlotMachineFragment"
             android:exported="false"
-            android:parentActivityName=".ui.MainActivity" />
+            android:parentActivityName=".ui.welcome.MainActivity" />
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".ui.welcome.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

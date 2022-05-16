@@ -35,6 +35,7 @@ android {
     viewBinding {
         enabled = true
     }
+    namespace 'com.vinicius.testesuasorte'
 
 }
 

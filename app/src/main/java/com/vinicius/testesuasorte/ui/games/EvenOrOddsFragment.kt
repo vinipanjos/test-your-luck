@@ -1,4 +1,4 @@
-package com.vinicius.testesuasorte.ui
+package com.vinicius.testesuasorte.ui.games
 
 import android.os.Bundle
 import android.view.LayoutInflater

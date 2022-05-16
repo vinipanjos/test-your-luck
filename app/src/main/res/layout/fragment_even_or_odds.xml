@@ -40,7 +40,7 @@
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/answer_txt" />
+        app:layout_constraintTop_toBottomOf="@+id/your_dice_txt" />
 
     <CheckBox
         android:id="@+id/even_btn"
@@ -86,7 +86,7 @@
         app:layout_constraintTop_toBottomOf="@+id/number_til" />
 
     <TextView
-        android:id="@+id/answer_txt"
+        android:id="@+id/your_dice_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -106,7 +106,7 @@
         app:layout_constraintBottom_toTopOf="@+id/number_til"
         app:layout_constraintEnd_toStartOf="@+id/odd_btn"
         app:layout_constraintStart_toEndOf="@+id/even_btn"
-        app:layout_constraintTop_toBottomOf="@+id/answer_txt" />
+        app:layout_constraintTop_toBottomOf="@+id/your_dice_txt" />
 
     <TextView
         android:id="@+id/textView6"

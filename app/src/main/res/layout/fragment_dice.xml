@@ -5,89 +5,73 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".ui.games.JokenpoFragment">
+    tools:context=".ui.games.DiceFragment">
+
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/linearLayoutCompat"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginTop="16dp"
         android:orientation="horizontal"
+        android:weightSum="2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.utils.widget.ImageFilterView
-            android:id="@+id/number_sort_iv"
-            android:layout_width="wrap_content"
+            android:id="@+id/my_dice_sort_iv"
+            android:layout_width="200dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
             android:layout_margin="4dp"
-            android:src="@drawable/jokenpo" />
+            android:layout_weight="1"
+            android:src="@drawable/dice0" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/enemy_dice_sort_iv"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_margin="4dp"
+            android:layout_weight="1"
+            android:src="@drawable/dice0" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <CheckBox
-        android:id="@+id/scissor_btn"
-        style="@style/Widget.AppCompat.CompoundButton.CheckBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:shadowColor="@color/primary_700"
-        android:text="Tesoura"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/paper_btn" />
-
-    <CheckBox
-        android:id="@+id/paper_btn"
-        style="@style/Widget.AppCompat.CompoundButton.CheckBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:shadowColor="@color/primary_700"
-        android:text="Papel"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/jokenpo_txt" />
-
-    <CheckBox
-        android:id="@+id/rock_btn"
-        style="@style/Widget.AppCompat.CompoundButton.CheckBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:shadowColor="@color/primary_700"
-        android:text="Pedra"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/scissor_btn"
-        app:layout_constraintStart_toEndOf="@+id/paper_btn"
-        app:layout_constraintTop_toTopOf="@+id/paper_btn" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/start_jokenpo_btn"
+        android:id="@+id/start_dice_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Começar !"
+        android:text="Jogar os dados !"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/jokenpo_txt"
-        app:layout_constraintVertical_bias="0.37" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat" />
 
     <TextView
-        android:id="@+id/jokenpo_txt"
+        android:id="@+id/your_dice_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Escolha pedra, papel ou tesoura."
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="12dp"
+        android:text="Seu dado"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat" />
+
+    <TextView
+        android:id="@+id/enemy_dice_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="48dp"
+        android:text="Dado do oponente"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat" />
 
     <TextView
@@ -97,7 +81,7 @@
         android:layout_marginBottom="16dp"
         android:text="Resultado"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/start_jokenpo_btn"
+        app:layout_constraintBottom_toTopOf="@+id/start_dice_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -106,20 +90,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="64dp"
         android:text="Ganhou: "
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rock_btn" />
+        app:layout_constraintTop_toTopOf="@+id/start_dice_btn" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="Perdeu:"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -148,8 +131,8 @@
         android:id="@+id/lost_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
         android:text="0"
+        android:textColor="@color/black"
 
         app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toTopOf="@+id/textView9" />
