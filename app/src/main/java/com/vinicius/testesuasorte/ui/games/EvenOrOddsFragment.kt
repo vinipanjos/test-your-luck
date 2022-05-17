@@ -6,7 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat.getDrawable
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.setFragmentResult
 import com.vinicius.testesuasorte.R
 import com.vinicius.testesuasorte.databinding.FragmentEvenOrOddsBinding
 
@@ -47,6 +50,15 @@ class EvenOrOddsFragment : Fragment(R.layout.fragment_even_or_odds) {
             if (binding.numberTil.editText?.text?.isEmpty() == true) {
                 Toast.makeText(requireContext(), " Preencher com o numero escolhido !", Toast.LENGTH_SHORT)
                     .show()
+            }else if(countWin == 5 || countLost == 5){
+                val resultLost = countLost
+                val resultWin = countWin
+                setFragmentResult("lostEvenAndOdds", bundleOf("bundleKey" to resultLost))
+                setFragmentResult("winEvenAndOdds", bundleOf("bundleKey" to resultWin))
+                val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
+                val fragmentTransaction = fragmentManager.beginTransaction()
+                binding.startEvenoroddsBtn.text = "Proximo jogo!"
+                fragmentTransaction.replace(R.id.flFragment, JokenpoFragment()).commit()
             } else {
                 showResult()
                 binding.winTv.text = "$countWin"

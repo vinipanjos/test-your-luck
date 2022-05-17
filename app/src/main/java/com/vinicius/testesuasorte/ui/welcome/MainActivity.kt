@@ -1,14 +1,11 @@
 package com.vinicius.testesuasorte.ui.welcome
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import com.vinicius.testesuasorte.R
 import com.vinicius.testesuasorte.databinding.ActivityMainBinding
-import com.vinicius.testesuasorte.ui.games.EvenOrOddsFragment
-import com.vinicius.testesuasorte.ui.games.JokenpoFragment
-import com.vinicius.testesuasorte.ui.SlotMachineFragment
-import com.vinicius.testesuasorte.ui.games.DiceFragment
+import com.vinicius.testesuasorte.ui.games.GamesActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -19,30 +16,15 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val evenOrOdds = EvenOrOddsFragment()
-        val slotMachine = SlotMachineFragment()
-        val jokenpo = JokenpoFragment()
-        val dice = DiceFragment()
-
-
-        binding.slotmachineBtn.setOnClickListener {
-            setFragment(slotMachine)
-        }
-        binding.evenoroddsBtn.setOnClickListener {
-            setFragment(evenOrOdds)
-        }
-        binding.jokenpoBtn.setOnClickListener {
-            setFragment(jokenpo)
-        }
-        binding.diceBtn.setOnClickListener {
-            setFragment(dice)
+        binding.btnStartGame.setOnClickListener {
+            val intent = Intent(this, GamesActivity::class.java)
+            startActivity(intent)
         }
 
-    }
-    fun setFragment(fragment: Fragment){
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.flFragment, fragment)
-            commit()
+        binding.cutTimeBtn.setOnClickListener {
+            //TODO configurar o que vai aparecer para pular o tempo
+            Toast.makeText(this, "Precisa de configuração !", Toast.LENGTH_LONG).show()
         }
+
     }
 }

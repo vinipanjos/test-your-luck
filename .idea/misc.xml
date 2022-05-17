@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/VINICIUS/AndroidStudioProjects/Testesuasorte/app/src/main/res/drawable/ic_evenorodds.xml" value="0.191" />
         <entry key="..\:/Users/VINICIUS/AndroidStudioProjects/Testesuasorte/app/src/main/res/layout/activity_even_or_odds.xml" value="0.2709677419354839" />
+        <entry key="..\:/Users/VINICIUS/AndroidStudioProjects/Testesuasorte/app/src/main/res/layout/activity_games.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/VINICIUS/AndroidStudioProjects/Testesuasorte/app/src/main/res/layout/activity_jokenpo.xml" value="0.67" />
         <entry key="..\:/Users/VINICIUS/AndroidStudioProjects/Testesuasorte/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/VINICIUS/AndroidStudioProjects/Testesuasorte/app/src/main/res/layout/activity_slot_machine.xml" value="0.25" />
@@ -12,6 +13,7 @@
         <entry key="..\:/Users/VINICIUS/AndroidStudioProjects/Testesuasorte/app/src/main/res/layout/fragment_even_or_odds.xml" value="0.358695652173913" />
         <entry key="..\:/Users/VINICIUS/AndroidStudioProjects/Testesuasorte/app/src/main/res/layout/fragment_item.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/VINICIUS/AndroidStudioProjects/Testesuasorte/app/src/main/res/layout/fragment_jokenpo.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/VINICIUS/AndroidStudioProjects/Testesuasorte/app/src/main/res/layout/fragment_result.xml" value="0.1" />
         <entry key="..\:/Users/VINICIUS/AndroidStudioProjects/Testesuasorte/app/src/main/res/layout/fragment_slot_machine.xml" value="0.25" />
         <entry key="..\:/Users/VINICIUS/AndroidStudioProjects/Testesuasorte/app/src/main/res/layout/slot_machine_fragment.xml" value="0.18802083333333333" />
       </map>

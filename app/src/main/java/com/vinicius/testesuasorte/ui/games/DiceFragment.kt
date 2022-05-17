@@ -7,6 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.core.os.bundleOf
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.setFragmentResult
+import androidx.fragment.app.setFragmentResultListener
 import com.vinicius.testesuasorte.R
 import com.vinicius.testesuasorte.databinding.FragmentDiceBinding
 import com.vinicius.testesuasorte.databinding.FragmentJokenpoBinding
@@ -45,12 +49,31 @@ class DiceFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //_binding = FragmentJokenpoBinding.inflate(layoutInflater)
-//evento de clique aqui
+        setFragmentResultListener("lostJokenpo") { key, bundle ->
+            countLost = bundle.getInt("bundleKey")
+        }
+        setFragmentResultListener("winJokenpo") { key, bundle ->
+            countWin = bundle.getInt("bundleKey")
+        }
+        binding.winTv.text = "$countWin"
+        binding.lostTv.text = "$countLost"
+
         binding.startDiceBtn.setOnClickListener {
-            showResult()
-            binding.winTv.text = "$countWin"
-            binding.drawTv.text = "$countDraw"
-            binding.lostTv.text = "$countLost"
+            if (countWin == 15 || countLost == 15) {
+                val resultLost = countLost
+                val resultWin = countWin
+                setFragmentResult("lostDice", bundleOf("bundleKey" to resultLost))
+                setFragmentResult("winDice", bundleOf("bundleKey" to resultWin))
+                val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
+                val fragmentTransaction = fragmentManager.beginTransaction()
+                binding.startDiceBtn.text = "Obter o resultado!"
+                fragmentTransaction.replace(R.id.flFragment, ResultFragment()).commit()
+            } else {
+                showResult()
+                binding.winTv.text = "$countWin"
+                binding.drawTv.text = "$countDraw"
+                binding.lostTv.text = "$countLost"
+            }
         }
     }
 
@@ -59,20 +82,30 @@ class DiceFragment : Fragment() {
     }
 
     fun showResult() {
-        var myDiceSort = drawDices()
-        var enemyDiceSort = drawDices()
-        var myDiceResult = diceImages[myDiceSort]
-        var enemyDiceResult = diceImages[enemyDiceSort]
-        binding.myDiceSortIv.setImageDrawable(ContextCompat.getDrawable(requireContext(), myDiceResult))
-        binding.enemyDiceSortIv.setImageDrawable(ContextCompat.getDrawable(requireContext(), enemyDiceResult))
+        val myDiceSort = drawDices()
+        val enemyDiceSort = drawDices()
+        val myDiceResult = diceImages[myDiceSort]
+        val enemyDiceResult = diceImages[enemyDiceSort]
+        binding.myDiceSortIv.setImageDrawable(
+            ContextCompat.getDrawable(
+                requireContext(),
+                myDiceResult
+            )
+        )
+        binding.enemyDiceSortIv.setImageDrawable(
+            ContextCompat.getDrawable(
+                requireContext(),
+                enemyDiceResult
+            )
+        )
 
         if (myDiceSort > enemyDiceSort) {
             binding.resultTv.text = "Você ganhou !"
             countWin++
-        } else if (myDiceSort == enemyDiceSort){
+        } else if (myDiceSort == enemyDiceSort) {
             binding.resultTv.text = "Você empatou !"
             countDraw++
-        } else{
+        } else {
             binding.resultTv.text = "Você perdeu !"
             countLost++
         }

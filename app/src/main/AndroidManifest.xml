@@ -9,9 +9,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TesteSuaSorte">
         <activity
-            android:name=".ui.games.JokenpoFragment"
+            android:name=".ui.games.GamesActivity"
             android:exported="false"
             android:parentActivityName=".ui.welcome.MainActivity"/>
+        <activity
+            android:name=".ui.games.JokenpoFragment"
+            android:exported="false"
+            android:parentActivityName=".ui.welcome.MainActivity" />
         <activity
             android:name=".ui.games.EvenOrOddsFragment"
             android:exported="false"

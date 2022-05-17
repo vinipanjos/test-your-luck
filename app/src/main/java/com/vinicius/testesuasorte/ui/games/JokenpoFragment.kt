@@ -6,7 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat.getDrawable
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.setFragmentResult
+import androidx.fragment.app.setFragmentResultListener
 import com.vinicius.testesuasorte.R
 import com.vinicius.testesuasorte.databinding.FragmentJokenpoBinding
 
@@ -21,6 +25,7 @@ class JokenpoFragment : Fragment(R.layout.fragment_jokenpo) {
         R.drawable.rock_jokenpo,
         R.drawable.paper_jokenpo
     )
+
     var countWin = 0
     var countLost = 0
     var countDraw = 0
@@ -44,12 +49,30 @@ class JokenpoFragment : Fragment(R.layout.fragment_jokenpo) {
         super.onViewCreated(view, savedInstanceState)
 //        _binding = FragmentJokenpoBinding.inflate(layoutInflater)
         var jokenpoSelect: Int
+        setFragmentResultListener("lostEvenAndOdds") { key, bundle ->
+            countLost = bundle.getInt("bundleKey")
+        }
+        setFragmentResultListener("winEvenAndOdds") { key, bundle ->
+            countWin = bundle.getInt("bundleKey")
+        }
+        binding.winTv.text = "$countWin"
+        binding.lostTv.text = "$countLost"
+
 
         binding.startJokenpoBtn.setOnClickListener {
             if (binding.rockBtn.isChecked || binding.paperBtn.isChecked || binding.scissorBtn.isChecked){
                 if (!valideStart()){
                     Toast.makeText(requireContext(), "Você pode selecionar somente uma opção !", Toast.LENGTH_SHORT).show()
-                } else {
+                } else if (countWin == 10 || countLost == 10){
+                    val resultLost = countLost
+                    val resultWin = countWin
+                    setFragmentResult("lostJokenpo", bundleOf("bundleKey" to resultLost))
+                    setFragmentResult("winJokenpo", bundleOf("bundleKey" to resultWin))
+                    val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
+                    val fragmentTransaction = fragmentManager.beginTransaction()
+                    binding.startJokenpoBtn.text = "Proximo jogo!"
+                    fragmentTransaction.replace(R.id.flFragment, DiceFragment()).commit()
+                }else{
                     jokenpoSelect = drawJokenpo()
                     binding.numberSortIv.setImageDrawable(getDrawable(requireContext(), jokenpoImages[jokenpoSelect]))
                     binding.resultTv.text = verifyWinner(jokenpoSelect)
