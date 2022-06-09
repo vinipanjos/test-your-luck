@@ -1,5 +1,5 @@
 # test-your-luck
-Projeto de aplicativo para Android usando linguagem Kotlin com jogos considerados de azar para "testar" a sorte do usuário.
+Projeto de aplicativo para Android usando linguagem Kotlin com alguns jogos bem conhecidos para jogar offline.
 
 ##
 
